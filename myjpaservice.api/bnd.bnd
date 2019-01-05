@@ -1,0 +1,2 @@
+Export-Package: com.flairbit.examples.postgresjpa.dao.api,\
+com.flairbit.examples.postgresjpa.dto.api

@@ -1,0 +1,16 @@
+Meta-Persistence: META-INF/persistence.xml
+
+Bundle-Blueprint: \
+	OSGI-INF/blueprint/blueprint.xml
+	
+Import-Package: \
+	org.apache.openjpa.util;resolution:=optional,\
+	org.apache.openjpa.enhance;resolution:=optional,\
+	org.apache.openjpa.persistence;resolution:=optional,\
+	javax.persistence.*;version='[1.1.0, 3.0.0)',\
+	javax.transaction;version='[1.0.0, 2.0.0)',\
+	*
+
+Service-Component: \
+	OSGI-INF/*.xml
+	

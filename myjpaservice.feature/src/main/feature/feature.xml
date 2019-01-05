@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}"
+	xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+                
+	<repository>mvn:org.apache.karaf.features/enterprise/${karaf.version}/xml/features</repository>
+	<repository>mvn:org.apache.karaf.features/framework/${karaf.version}/xml/features</repository>
+	
+	<feature name="jpa-postgresql" description='${project.name}' version='${project.version}'>
+		<feature dependency="true">scr</feature>
+		<feature dependency="true">aries-blueprint</feature>
+		
+		<capability>osgi.service;objectClass=javax.persistence.EntityManager</capability>
+		
+		<feature dependency="true">aries-blueprint</feature>
+		<feature dependency="true">pax-jdbc-postgresql</feature>
+		<bundle>mvn:org.apache.xbean/xbean-asm6-shaded/4.10</bundle>
+
+		<feature dependency="true">openjpa</feature>
+		<feature>pax-jdbc-config</feature>
+		<feature>pax-jdbc</feature>
+		<feature>pax-jdbc-pool-dbcp2</feature>
+		<feature>jpa</feature>
+		<feature>transaction</feature>
+		
+		<bundle>mvn:com.flairbit.examples.postgresjpa/myjpaservice.api/${project.version}</bundle>
+		<bundle>mvn:com.flairbit.examples.postgresjpa/myjpaservice.impl/${project.version}</bundle>
+		
+		<config name="org.ops4j.datasource-postgres">
+			pool=dbcp2
+			xa=true
+			osgi.jdbc.driver.name=PostgreSQL\ JDBC\ Driver
+			serverName=localhost
+			portNumber=5433
+			databaseName=postgresqlDB
+			user=postgres
+			password=system
+			dataSourceName=myPersistenceUnit
+		</config>
+	</feature>
+
+</features>
