@@ -14,6 +14,7 @@
 		<feature dependency="true">aries-blueprint</feature>
 		<feature dependency="true">pax-jdbc-postgresql</feature>
 
+		<feature>jndi</feature>
 		<feature>pax-jdbc-config</feature>
 		<feature>pax-jdbc</feature>
 		<feature>pax-jdbc-pool-dbcp2</feature>
