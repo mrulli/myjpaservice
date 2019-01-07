@@ -88,60 +88,8 @@
                 </includes>
             </testResource>
         </testResources>
+		
 		<plugins>
-			<plugin>
-				<groupId>io.fabric8</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>0.24.0</version>
-				<extensions>true</extensions>
-				<configuration>
-					<images>
-						<image>
-							<name>postgres</name>
-							<alias>postgres-archetype</alias>
-							<run>
-								<namingStrategy>alias</namingStrategy>
-								<env>
-									<POSTGRES_USER>postgres</POSTGRES_USER>
-									<POSTGRES_PASSWORD>system</POSTGRES_PASSWORD>
-									<POSTGRES_DB>postgresqlDB</POSTGRES_DB>
-								</env>
-								<ports>
-									<port>${postgres-container-port}:5432</port>
-								</ports>
-								<wait>
-									<!-- waiting for https://github.com/fabric8io/docker-maven-plugin/issues/552 fix -->
-									<!-- <log>database system is ready to accept connections</log> -->
-									<time>10000</time>
-									<shutdown>2000</shutdown>
-									<kill>3000</kill>
-								</wait>
-							</run>
-						</image>
-					</images>
-					<skip>${skipTests}</skip>
-				</configuration>
-				<executions>
-					<execution>
-						<id>fk.start</id>
-						<phase>validate</phase>
-						<goals>
-							<goal>stop</goal>
-							<goal>remove</goal>
-							<goal>build</goal>
-							<goal>start</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>fk.stop</id>
-						<phase>verify</phase>
-						<goals>
-							<goal>stop</goal>
-							<goal>remove</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
 			<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>

@@ -10,11 +10,14 @@
 		<jta-data-source>
            	osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=myPersistenceUnit)	 
 		</jta-data-source>
-
+		 <non-jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=myPersistenceUnit)</non-jta-data-source>
+		 
 		<class>com.flairbit.examples.postgresjpa.dto.impl.JPAExampleEntity</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
+			<property name="openjpa.Log" value="DefaultLevel=INFO, Runtime=INFO, Tool=INFO, SQL=TRACE" />
+      		<property name="openjpa.Log" value="slf4j" />
 		</properties>
 	</persistence-unit>
 </persistence>

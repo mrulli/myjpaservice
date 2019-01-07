@@ -5,12 +5,11 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
-import org.osgi.service.component.annotations.Activate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.flairbit.examples.postgresjpa.dto.api.ExampleEntityApi;
 import com.flairbit.examples.postgresjpa.dao.api.ExampleEntityService;
+import com.flairbit.examples.postgresjpa.dto.api.ExampleEntityApi;
 import com.flairbit.examples.postgresjpa.dto.impl.JPAExampleEntity;
 
 @Transactional
@@ -25,7 +24,6 @@ public class ExampleEntityServiceImpl implements ExampleEntityService {
 		super();
 	}
 
-	@Activate
 	public void activate() {
 		log.info("Persistence service is starting...");
 	}

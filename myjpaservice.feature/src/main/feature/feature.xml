@@ -13,14 +13,14 @@
 		
 		<feature dependency="true">aries-blueprint</feature>
 		<feature dependency="true">pax-jdbc-postgresql</feature>
-		<bundle>mvn:org.apache.xbean/xbean-asm6-shaded/4.10</bundle>
 
-		<feature dependency="true">openjpa</feature>
 		<feature>pax-jdbc-config</feature>
 		<feature>pax-jdbc</feature>
 		<feature>pax-jdbc-pool-dbcp2</feature>
 		<feature>jpa</feature>
 		<feature>transaction</feature>
+		<feature version="[3,4)">openjpa3</feature>
+		<bundle>mvn:org.apache.xbean/xbean-asm6-shaded/4.10</bundle>
 		
 		<bundle>mvn:com.flairbit.examples.postgresjpa/myjpaservice.api/${project.version}</bundle>
 		<bundle>mvn:com.flairbit.examples.postgresjpa/myjpaservice.impl/${project.version}</bundle>
@@ -30,7 +30,7 @@
 			xa=true
 			osgi.jdbc.driver.name=PostgreSQL\ JDBC\ Driver
 			serverName=localhost
-			portNumber=5433
+			portNumber=5432
 			databaseName=postgresqlDB
 			user=postgres
 			password=system
